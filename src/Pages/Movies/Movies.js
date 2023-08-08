@@ -19,7 +19,7 @@ const Movies = () => {
 
     useEffect(() => {
         fetchMovies();
-    }, [])
+    }, [page])
 
     return (
         <div>
