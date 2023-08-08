@@ -16,10 +16,14 @@ const SingleContent = ({
             <img
                 className='poster'
                 src={poster ? `${img_300}/${poster}` : unavailable}
-                alt={title} />
+                alt={title}
+            />
             <b className='title'>{title}</b>
-            <span className='subtitle'>{media_type === "tv" ? "TV Series" : "Movie"}</span>
-            <span className='subTitle'></span>
+            <span className='sub_Title'>
+                <span className='subTitle'>{media_type === "tv" ? "TV Series" : "Movie"}</span>
+                <span className='subTitle'>{date}</span>
+            </span>
+
         </div>
     )
 }
