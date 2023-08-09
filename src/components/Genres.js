@@ -13,7 +13,16 @@ const Genres = ({
         setSelectedGenres([...selectedGenres, genre]);
         setGenres(genres.filter((g) => g.id !== genre.id));
         setPage(1)
-    }
+    };
+
+    const handleRemove = (genre) => {
+        setSelectedGenres(
+            selectedGenres.filter((selected) => selected.id !== genre.id)
+        )
+        setGenres([...genres, genre]);
+        setPage(1);
+    };
+
 
     const fetchGenres = async () => {
         const { data } = await axios.get(
@@ -21,7 +30,7 @@ const Genres = ({
         );
         console.log(data)
         setGenres(data.genres)
-    }
+    };
 
     useEffect(() => {
         fetchGenres();
@@ -31,14 +40,14 @@ const Genres = ({
         // return () => {
         //     setGenres({})
         // }
-    }, [])
+    }, []);
 
     return (
         <div style={{ padding: "8px 0" }}>
             {selectedGenres &&
                 selectedGenres.map((genre) => (
                     <Chip
-                    color='primary'
+                        color='primary'
                         // sx={{
                         //     backgroundColor: 'white',
                         //     color: 'black',
@@ -51,6 +60,7 @@ const Genres = ({
                         size='small'
                         key={genre.id}
                         clickable
+                        onDelete={()=>handleRemove(genre)}
                     />
                 ))
             }
@@ -69,7 +79,7 @@ const Genres = ({
                         size='small'
                         key={genre.id}
                         clickable
-                        onClick={()=>handleAdd(genre)}
+                        onClick={() => handleAdd(genre)}
                     />
                 ))
             }
