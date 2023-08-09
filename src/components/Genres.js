@@ -38,8 +38,10 @@ const Genres = ({
         // on changing the page we want to unmount the genres component
         // unmount means we want to cancel the api key call.
         // return () => {
-        //     setGenres({})
+        //     setGenres({});
         // }
+        
+        // eslint-disable-next-line 
     }, []);
 
     return (
