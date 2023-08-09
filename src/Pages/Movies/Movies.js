@@ -24,7 +24,7 @@ const Movies = () => {
         // setNumOfPages(500);
         setNumOfPages(data.total_pages > 500 ? 500 : data.total_pages);
 
-    }
+    };
 
     useEffect(() => {
         fetchMovies();
