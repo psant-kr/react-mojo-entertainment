@@ -23,10 +23,8 @@ const Search = () => {
 
     const fetchSearch = async () => {
         const { data } = await axios.get(
-            `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}
-             ?api_key=${process.env.REACT_APP_API_KEY}
-            &language=en-US&query=${searchText}
-            &page=${page}&include_adult=false`
+            `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY
+            }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
         );
         console.log(data);
         setContent(data.results);
@@ -35,7 +33,7 @@ const Search = () => {
 
     useEffect(() => {
         window.scroll(0, 0);
-        fetchSearch();
+        // fetchSearch();
         // eslint-disable-next-line
     }, [type, page]);
 
