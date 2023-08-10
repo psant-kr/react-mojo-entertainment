@@ -26,10 +26,15 @@ const Search = () => {
             `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY
             }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
         );
-        console.log(data);
+        // console.log(data);
         setContent(data.results);
+        // if (data.results.length > 0) {
+        //     setContent(data.results);
+        // }
         setNumOfPages(data.total_pages);
     };
+
+    // console.log(content)
 
     useEffect(() => {
         window.scroll(0, 0);
@@ -105,11 +110,18 @@ const Search = () => {
                         />
                     )
                 }
-                {
-                    searchText &&
+                {/* //testing started */}
+
+                {/* {searchText ?<h2></h2> : <h2>Search Movies / TV Series </h2>} */}
+                {/* {content ? <h2>someting is always there in content</h2> : <h2>NO Movies / TV Series</h2>} */}
+
+                {/* {searchText &&
                     !content &&
-                    (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)
-                }
+                    (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)} */}
+                {/* //testing ended */}
+                {searchText &&
+                    !content &&
+                    (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
             </div>
 
             {numOfPages > 1 && (
