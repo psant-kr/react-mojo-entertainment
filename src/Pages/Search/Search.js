@@ -34,7 +34,7 @@ const Search = () => {
         setNumOfPages(data.total_pages);
     };
 
-    // console.log(content)
+
 
     useEffect(() => {
         window.scroll(0, 0);
@@ -42,6 +42,7 @@ const Search = () => {
         // eslint-disable-next-line
     }, [type, page]);
 
+    // console.log(content)
 
     return (
         <div>
