@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react'
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -6,6 +6,11 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import {
+    img_500,
+    unavailable,
+    unavailableLandscape
+} from '../../config/config';
 
 const style = {
     position: 'absolute',
@@ -30,9 +35,9 @@ const style = {
 };
 
 export default function ContentModal({ children, media_type, id }) {
-    const [content, setContent] = useState();
+    const [content, setContent] = React.useState();
     const [video, setVideo] = useState();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -42,13 +47,23 @@ export default function ContentModal({ children, media_type, id }) {
         const { data } = await axios.get(
             `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
         );
+        console.log(data)
+        setContent(data);
     };
 
     const fetchVideo = async () => {
         const { data } = await axios.get(
             `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
         );
+        // console.log(data);
+        setVideo(data.results[0]?.key);
     };
+
+    useEffect(() => {
+        fetchData();
+        fetchVideo();
+    }, []);
+
 
     return (
         <div>
@@ -69,14 +84,44 @@ export default function ContentModal({ children, media_type, id }) {
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
-                        <Typography id="transition-modal-title" variant="h6" component="h2">
+                    {content &&
+                        <Box sx={style}>
+                            <div className='ContentModal'>
+                                {/* <img
+                                    className='Content_potrait'
+                                    alt={content.name || content.title}
+                                    src={content.poster_path
+                                        ? `${img_500}/${content.poster_path}`
+                                        : unavailable}
+                                /> */}
+                                <img
+                                    className='ContentModal_landscape'
+                                    alt={content.name || content.title}
+                                    src={content.backdrop_path
+                                        ? `${img_500}/${content.backdrop_path}`
+                                        : unavailableLandscape}
+                                />
+                                <div className='ContentModal_about'>
+                                    <span className='ContentModal_title'>
+                                        {content.name || content.title}(
+                                        {(
+                                            content.first_air_date ||
+                                            content.release_date ||
+                                            "----"
+                                        ).substring(0, 4)}
+                                        )
+                                    </span>
+                                    
+                                </div>
+                            </div>
+                            {/* <Typography id="transition-modal-title" variant="h6" component="h2">
                             Text in a modal
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
-                    </Box>
+                        </Typography> */}
+                        </Box>
+                    }
                 </Fade>
             </Modal>
         </div>
