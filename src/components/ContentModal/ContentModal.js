@@ -111,7 +111,17 @@ export default function ContentModal({ children, media_type, id }) {
                                         ).substring(0, 4)}
                                         )
                                     </span>
-                                    
+                                    {content.tagline && (
+                                        <i className='tagline'>{content.tagline}</i>
+                                    )}
+                                    <span className='ContentModal__description'>
+                                        {content.overview}
+                                    </span>
+                                    <div>
+
+                                    </div>
+
+
                                 </div>
                             </div>
                             {/* <Typography id="transition-modal-title" variant="h6" component="h2">
