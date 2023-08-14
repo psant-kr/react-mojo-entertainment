@@ -65,7 +65,7 @@
     display: none;
 }
 
-@media (min-width:835) {
+@media (min-width: 835px) {
     .ContentModal_landscape {
         display: none;
     }
@@ -86,10 +86,12 @@
         padding: 0;
         height: 100%;
     }
-    .ContentModal_title{
+
+    .ContentModal_title {
         font-size: 3.5vw;
     }
-    .ContentModal__description{
+
+    .ContentModal__description {
         font-size: 22px;
     }
 }
