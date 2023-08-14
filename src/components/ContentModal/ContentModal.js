@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import {
     img_500,
     unavailable,
@@ -121,6 +122,15 @@ export default function ContentModal({ children, media_type, id }) {
 
                                     </div>
 
+                                    <Button
+                                        variant="contained"
+                                        startIcon={<YouTubeIcon />}
+                                        color='secondary'
+                                        target='__blank'
+                                        href={`https://www.youtube.com/watch?v=${video}`}
+                                    >
+                                        Watch the Trailer
+                                    </Button>
 
                                 </div>
                             </div>
