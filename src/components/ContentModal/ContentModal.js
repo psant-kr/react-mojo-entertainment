@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import "./ContentModal.css"
@@ -64,6 +63,7 @@ export default function ContentModal({ children, media_type, id }) {
     useEffect(() => {
         fetchData();
         fetchVideo();
+        // eslint-disable-next-line
     }, []);
 
 
@@ -139,12 +139,6 @@ export default function ContentModal({ children, media_type, id }) {
 
                                 </div>
                             </div>
-                            {/* <Typography id="transition-modal-title" variant="h6" component="h2">
-                            Text in a modal
-                        </Typography>
-                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography> */}
                         </Box>
                     }
                 </Fade>
