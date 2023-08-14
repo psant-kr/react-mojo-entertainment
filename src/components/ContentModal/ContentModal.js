@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import "./ContentModal.css"
 import {
     img_500,
     unavailable,
@@ -67,10 +68,14 @@ export default function ContentModal({ children, media_type, id }) {
 
 
     return (
-        <div>
-            <Button className='media' onClick={handleOpen}>
+        <>
+            <div className='media'
+                onClick={handleOpen}
+                style={{ cursor: "pointer" }}
+                color='inherit'
+            >
                 {children}
-            </Button>
+            </div>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -88,13 +93,13 @@ export default function ContentModal({ children, media_type, id }) {
                     {content &&
                         <Box sx={style}>
                             <div className='ContentModal'>
-                                {/* <img
-                                    className='Content_potrait'
+                                <img
+                                    className='ContentModal_potrait'
                                     alt={content.name || content.title}
                                     src={content.poster_path
                                         ? `${img_500}/${content.poster_path}`
                                         : unavailable}
-                                /> */}
+                                />
                                 <img
                                     className='ContentModal_landscape'
                                     alt={content.name || content.title}
@@ -144,6 +149,6 @@ export default function ContentModal({ children, media_type, id }) {
                     }
                 </Fade>
             </Modal>
-        </div>
+        </>
     );
 }
