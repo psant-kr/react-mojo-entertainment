@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 // import "./ContentModal.css";
-import './ContentModal.css';
+import './Contentmodal.css';
 import {
     img_500,
     unavailable,
