@@ -22,6 +22,18 @@ const Carrousel = ({ media_type, id }) => {
         </div>
     ));
 
+    const responsive = {
+        0: {
+            items: 3,
+        },
+        512: {
+            items: 5,
+        },
+        1024: {
+            items: 7,
+        },
+    };
+
 
     const fetchCredits = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
@@ -37,7 +49,15 @@ const Carrousel = ({ media_type, id }) => {
 
 
     return (
-        <AliceCarousel mouseTracking items={items} />
+        <AliceCarousel
+            mouseTracking
+            items={items}
+            autoPlay
+            responsive={responsive}
+            infinite
+            disableDotsControls
+            disableButtonsControls
+        />
     );
 }
 
