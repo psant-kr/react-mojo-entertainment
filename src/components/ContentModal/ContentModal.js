@@ -6,7 +6,8 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import "./ContentModal.css"
+// import "./ContentModal.css";
+import './ContentModal.css';
 import {
     img_500,
     unavailable,
@@ -37,7 +38,7 @@ const style = {
 };
 
 export default function ContentModal({ children, media_type, id }) {
-    const [content, setContent] = React.useState();
+    const [content, setContent] = useState();
     const [video, setVideo] = useState();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
