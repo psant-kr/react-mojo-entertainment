@@ -1,10 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@100&family=Raleway&family=Roboto:wght@100&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@100&family=Raleway&family=Roboto:wght@100&display=swap');
 
 .ContentModal_landscape {
     object-fit: contain;
     border-radius: 8px;
-    /* border: 1px solid red; */
-    /* padding: 8px; */
     margin: 12px;
 }
 
@@ -20,7 +18,6 @@
 }
 
 .ContentModal {
-    border: 1px solid greenyellow;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -59,7 +56,6 @@
     overflow-y: scroll;
     padding: 15px;
     border-radius: 16px;
-    /* scrollbar-width: thin; */
     box-shadow: inset 0 0 5px #000000;
     text-align: justify;
 }
@@ -77,14 +73,12 @@
     .ContentModal_potrait {
         display: flex;
         width: 38%;
-        border: 1px solid red;
         margin: 16px 0 ;
     }
 
     .ContentModal {
         flex-direction: row;
         justify-content: space-around;
-        /* padding: 10px 0; */
     }
 
     .ContentModal_about {
