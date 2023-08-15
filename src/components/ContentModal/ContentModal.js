@@ -12,6 +12,7 @@ import {
     unavailable,
     unavailableLandscape
 } from '../../config/config';
+import Carrousel from '../Carousel/Carousel';
 
 const style = {
     position: 'absolute',
@@ -124,7 +125,10 @@ export default function ContentModal({ children, media_type, id }) {
                                         {content.overview}
                                     </span>
                                     <div>
-
+                                        <Carrousel
+                                            media_type={media_type}
+                                            id={id}
+                                        />
                                     </div>
 
                                     <Button
