@@ -86,7 +86,7 @@
         padding: 0;
         height: 100%;
         margin: 20px 0;
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
     }
 
     .ContentModal_title {
