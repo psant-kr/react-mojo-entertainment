@@ -3,6 +3,9 @@
 .ContentModal_landscape {
     object-fit: contain;
     border-radius: 8px;
+    /* border: 1px solid red; */
+    /* padding: 8px; */
+    margin: 12px;
 }
 
 .ContentModal_potrait {
@@ -17,6 +20,7 @@
 }
 
 .ContentModal {
+    border: 1px solid greenyellow;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,6 +69,7 @@
     display: none;
 }
 
+
 @media (min-width: 835px) {
     .ContentModal_landscape {
         display: none;
@@ -73,18 +78,22 @@
     .ContentModal_potrait {
         display: flex;
         width: 38%;
+        border: 1px solid red;
+        margin: 16px 0 ;
     }
 
     .ContentModal {
         flex-direction: row;
         justify-content: space-around;
-        padding: 10px 0;
+        /* padding: 10px 0; */
     }
 
     .ContentModal_about {
         width: 58%;
         padding: 0;
         height: 100%;
+        margin: 20px 0;
+        border: 1px solid blue;
     }
 
     .ContentModal_title {
